@@ -13,7 +13,7 @@ public class DepositCalc {
             System.out.println("Некорректный ввод! Введите сумму вклада: ");
             sc.next();
         }
-        depositSum = sc.nextFloat();
+        depositSum = sc.nextInt();
 
         System.out.println("Введите срок вклада в месяцах: ");
         while (!sc.hasNextInt()){
@@ -27,5 +27,7 @@ public class DepositCalc {
         }
 
         System.out.println("После " + period + " месяцев сумма вклада составит " + depositSum);
+
+        sc.close();
     }
 }
