@@ -1,18 +1,31 @@
+import java.util.Random;
+
 public class StringArray {
 
-    public static void main(String[] args) {
+    Random random = new Random();
+    int stringNumber = random.nextInt(3);
 
-        String[] myArray = new String[]{"привет", "ПОКА", "гипербола"};
+    public String printRandomString(String[] array){
+        return array[stringNumber];
+    }
 
-        System.out.println(myArray[0].toUpperCase());
-        System.out.println(myArray[1].toLowerCase());
+    public String printUpperCase(String[] array, int index){
+        return array[index].toUpperCase();
+    }
 
-        for (int i = 0; i < myArray.length; i++) {
-            if(myArray[i].indexOf("О") == 1){
-                String start = myArray[i].substring(0, 3);
-                String end = myArray[i].substring(3);
-                System.out.println(start + " " + end);
+    public String printLowerCase(String[] array, int index){
+        return array[index].toLowerCase();
+    }
+
+    public String arrayManipulations(String[] array){
+        String a = "Слов с второй буквой О нет в массиве";
+        for (int i = 0; i < array.length; i++) {
+            if(array[i].indexOf("О") == 1){
+                String start = array[i].substring(0, 3);
+                String end = array[i].substring(3);
+                a = start + " " + end;
             }
         }
+        return a;
     }
 }
