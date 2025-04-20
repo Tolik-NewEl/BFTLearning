@@ -1,15 +1,14 @@
 package page;
 
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.openqa.selenium.Keys;
+import page.elements.Input;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 
 public class MainPage {
-    protected final SelenideElement searchFieldBefore = $x("//input[@class='search skin-minerva-search-trigger']");
-    protected final SelenideElement searchFieldAfter = $x("//input[@class='search mf-icon-search']");
+    protected final Input searchFieldBefore = new Input("Инпут Искать в Википедии", $x("//input[@class='search skin-minerva-search-trigger']"));
+    protected final Input searchFieldAfter = new Input("Инпут поиска после нажатия", $x("//input[@class='search mf-icon-search']"));
 
     @Step("Открываем страницу сайта")
     public MainPage openPage(String url){
@@ -31,7 +30,7 @@ public class MainPage {
 
     @Step("Нажимаем Enter")
     public SearchResultPage pressEnter(){
-        searchFieldAfter.sendKeys(Keys.ENTER);
+        searchFieldAfter.sendEnter();
         return new SearchResultPage();
     }
 }
